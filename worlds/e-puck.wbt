@@ -1,0 +1,68 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  info [
+    "The model of the E-puck robot"
+  ]
+  title "E-puck simulation"
+}
+Viewpoint {
+  orientation 0.48866512751340935 -0.8268348026616292 -0.27847908765256996 5.110741559974962
+  position 0.4456501097349516 0.3324638906058498 0.18580619162647632
+  follow "e-puck"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+}
+Ball {
+  translation 0.14 0.00984301392065894 -0.189184
+  name "ball(1)"
+  color 0 0 1
+  radius 0.01
+  mass 0.1
+}
+WoodenBox {
+  translation -0.2 0.05 0.683174
+  rotation 0 1 0 0.5
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.75 0.05 -0.35
+  rotation 0 1 0 4.96782
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.5 0.05 0.35471
+  rotation 0 1 0 5.36782
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.3 0.05 -0.36
+  rotation 0 1 0 5.36782
+  name "wooden box(3)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.65 0.05 0.66
+  rotation 0 1 0 5.36782
+  name "wooden box(4)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  hidden position_0_0 19.199999996876638
+  hidden position_0_1 19.19999999873651
+  hidden translation_1 -0.025999999999999874 0.02 0
+  hidden rotation_1 1 0 0 5.9327412318417085
+  hidden translation_2 0.025999999999999718 0.02 0
+  hidden rotation_2 1 0 0 5.932741229981837
+  translation 0.16577599999962891 -6.396754039014914e-05 -0.03987470018302929
+  rotation -0.7977232384485324 7.219882629811313e-06 0.6030237431370835 8.63308438289068e-06
+  controller "Vision"
+  camera_width 800
+  camera_height 300
+}
