@@ -66,10 +66,16 @@ while robot.step(TIME_STEP) != -1:
     maskBlue=cv.inRange(frameHSV,azulbajo,azulalto)
     maskBluevis=cv.bitwise_and(procesamiento,procesamiento,mask=maskBlue)
     ## contornos del sistema
+    
     contours, hierarchy=cv.findContours(maskBlue,cv.RETR_EXTERNAL,cv.CHAIN_APPROX_SIMPLE)
+    if contours==[]:
+        wheels[0].setVelocity(0)
+        wheels[1].setVelocity(0)
     for c in contours:
         area=cv.contourArea(c)
+       
         if area>1000:
+            
             M=cv.moments(c)
             if (M["m00"]==0): M["m00"]=1
             x=int(M["m10"]/M["m00"])
@@ -91,13 +97,13 @@ while robot.step(TIME_STEP) != -1:
             if abs(error)<5:
                 w_control=0;
             velocities=T_vel@np.matrix([[0],[w_control]])
-            print(velocities)
+            #print(velocities)
             leftSpeed = velocities[1,0]
             rightSpeed = velocities[0,0]
             ## aplicacion de veloicades a cada rueda
             wheels[0].setVelocity(leftSpeed)
             wheels[1].setVelocity(rightSpeed)
-            
+        
     #leftSpeed = 0.0
     #rightSpeed = 0.0
     ## aplicacion de veloicades a cada rueda
@@ -106,7 +112,7 @@ while robot.step(TIME_STEP) != -1:
     #cv.drawContours(procesamiento, contours, -1, (0,0,0), 3)
     #uestra de resultados
     #filtro azul
-    #cv.imshow("filtro azul",maskBluevis)
+    cv.imshow("filtro azul",maskBluevis)
     #filtro rojo
     #cv.imshow("filtro rojo",maskRed)
     ## muestra de la imagen en pantalla
